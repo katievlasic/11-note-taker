@@ -21,12 +21,22 @@ router.get("/", (req, res) => {
 // CRUD - create (POST)
 // POST request
 router.post("/", (req, res) => {
-  writeFile("./db/db.json", `UTF8`).then((data) => {
-    // console.log("POST" + data);
-    let formatData = JSON.parse(data);
-    console.info(`${req.method} request received`);
-    res.json(formatData);
-  });
+  const {title, text} = req.body;
+
+  const newNote = {
+    title,
+    text
+  };
+
+  readAndAppend(newNote, './db/db.json');
+
+  res.json(newNote);
+  // .then((data) => {
+  //   writeFile("./db/db.json", varAdd, `UTF8`)
+  //   let formatData = JSON.parse(data);
+  //   console.info(`${req.method} request received`);
+  //   res.json(formatData);
+  // });
 });
 
 module.exports = router;
