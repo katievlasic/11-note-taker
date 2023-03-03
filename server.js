@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path'); // need for HTML routes
 const routes = require('./routes/index');
 
-const PORT = process.env.PORT || 3001; // Heroku 5 digit = process.env.PORT 
+const PORT = Process.env.PORT || 3001; // Heroku 5 digit = Process.env.PORT 
 
 const app = express();
 
