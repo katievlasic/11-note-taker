@@ -27,17 +27,21 @@ router.post("/", (req, res) => {
     title,
     text
   };
+  readFile("./db/db.json", `UTF8`).then((data) => {
+    console.log("befor format" + data);
+    let formatData = JSON.parse(data); // db.json object array
+    formatData.push(newNote); // array need to use method
+    writeFile("./db/db.json", JSON.stringify(formatData), `UTF8`)
+    console.log(formatData); // color variation in backend terminal means object
+    res.json(formatData); // send to front end
 
-  readAndAppend(newNote, './db/db.json');
+  })
+});
 
-  res.json(newNote);
-  // .then((data) => {
-  //   writeFile("./db/db.json", varAdd, `UTF8`)
+
   //   let formatData = JSON.parse(data);
   //   console.info(`${req.method} request received`);
   //   res.json(formatData);
-  // });
-});
 
 module.exports = router;
 
