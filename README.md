@@ -14,7 +14,7 @@ This application demonstrates CRUD by using Create (POST) and Read (GET).
 
 This application is deployed through heroku where the following code was used to deploy from the repo on a local device and linked to the published repo on GitHub:
 
-heroku git:remote -a note-taker-kv
+heroku git:remote -a note-taker-kv (which repo is connected)
 
 git remote heroku main
 
