@@ -6,10 +6,10 @@ const PORT = process.env.PORT || 3001; // Heroku 5 digit = Process.env.PORT
 
 const app = express();
 
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-// middleware above
 app.use('/api', routes); 
 
 // HTML route delivers what user sees, server auto-opening html in browser
