@@ -6,8 +6,6 @@ const writeFile = util.promisify(fs.writeFile);
 
 // promise format
 
-
-
 // CRUD - Read route (GET)
 // GET request
 router.get('/', (req, res) => {
@@ -25,8 +23,12 @@ router.get('/', (req, res) => {
   // CRUD - create (POST)
   // POST request
   router.post('/', (req, res) => {
-      res.json(`${req.method} request received to post`);
-      console.info(`${req.method} request received`);
+    writeFile('./db/db.json','utf8')
+    .then((data) => {
+        let formatData = JSON.parse(data) 
+        console.info(`${req.method} request received`);
+        res.json(formatData);
+    })
     });
 
 
